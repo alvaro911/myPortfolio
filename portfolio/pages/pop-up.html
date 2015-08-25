@@ -1,0 +1,14 @@
+<div class="black-screen">
+	<div class="overlay" ng-click="stagger.viewable = !stagger.viewable"></div>
+	<div class="artwork-container">
+		<div class="title-cont">
+			<h2>{{stagger.currentMovie.movieTitle}}</h2>
+			<h5 class="tags" ng-repeat="tag in stagger.currentMovie.tags">{{tag}}</h5>
+		</div>
+		<img ng-repeat="bigPic in stagger.currentMovie.bigPics" ng-src="{{bigPic}}">
+		<iframe ng-repeat="video in stagger.currentMovie.videos" ng-src="{{video}}" frameborder="0" allowfullscreen></iframe>
+		<div class="footer-cont">
+			<div>icons will go here</div>
+		</div>
+	</div>
+</div>

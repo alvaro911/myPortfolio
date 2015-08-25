@@ -1,0 +1,50 @@
+<section id="intro" class="intro-home">
+	<div id="intro-contain">
+		<img src="images/logo_header-01.svg">
+		<h2><i>Vision & Execution</i></h2>
+	</div>
+	<div id="bgvideo">
+		<div class="videoBG_wrapper">
+			<div id="bgvideo" width="100%" height="100%"></div>
+			
+			<div >
+				<video poster="images/ballons.jpg" autoplay="autoplay" src="video/balloons.webm" width="100%" loop="true"></video>
+			</div>
+		</div>
+	</div>
+</section>
+<section class="portfolio">
+	<section ng-click="stagger.kidMoviesBtn()" class="tile-wrapper programming effect-apollo">
+		<img src="images/programming.jpg">
+		<div class="caption">
+			<h2><span>Programming </span> Portfolio</h2>
+			
+		</div>	 
+		<p>Look at my programming portfolio, where I show my understanding of front end web development</p>
+	</section>
+		
+	<section ng-click="stagger.actionMoviesBtn()" class="tile-wrapper design effect-apollo">
+		<img src="images/gd.jpg">
+		<div class="caption">
+			<h2><span>Graphic Design </span> Portfolio</h2>	
+		</div>
+		<p>Look at my programming portfolio, where I show my understanding of front end web development</p>
+	</section>
+</section>
+<div id="holder">		
+	<div id="container">
+		<div ng-show="stagger.titleBar" class="title-bar">
+			<h1>{{stagger.currentPortfolio.title}}</h1>
+			<p>{{stagger.currentPortfolio.paragraph}}</p>
+		</div>
+		<div ng-repeat="movie in stagger.movies" class="wrapper">
+			<img src="{{movie.moviePic}}" ng-click="stagger.popUpBtn(movie)" />
+			<div class="text-wrapper">
+				<h3 ng-click="stagger.popUpBtn(movie)">{{movie.movieTitle}}</h3>
+				<p>{{movie.movieDescription}}</p>
+			</div>
+			
+		</div>
+	</div>
+</div>
+<pop-up ng-show="stagger.viewable"></pop-up>
