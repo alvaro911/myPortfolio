@@ -12,12 +12,14 @@
        'https://bitly.com/shorten/**'
      ]);
    })
-	.controller('staggerCtrl', function($location){
+	.controller('staggerCtrl', function($location, $anchorScroll){
 		var self = this;
 		self.viewable = false;
 		self.titleBar = false;
 		self.navigateTo = function(page){
 			$location.path( "/" + page );
+			$anchorScroll('top');
+
 		};
 
 		var portfolios = [
@@ -38,7 +40,8 @@
 				movieDescription: 'Ang is the last Airbender, and he goes in a quest to become the Avatar and stop the Fire Nation',
 				bigPics: ["http://bit.ly/1HpnxMC", "http://bit.ly/1ILre4T"],
 				videos: ["https://www.youtube.com/embed/gwdx3VY9bhw"],
-				tags: ["Ang", "Nickelodeon", "Animation"]
+				tags: ["Ang", "Nickelodeon", "Animation"],
+				projectLink:'http://www.behance.net'
 			},
 			{
 				moviePic: 'https://mir-s3-cdn-cf.behance.net/projects/202/15078531.54890dc71096a.jpg',
@@ -60,28 +63,39 @@
 
 		var actionMovies = [
 			{
-				moviePic: 'https://mir-s3-cdn-cf.behance.net/projects/202/12278979.548295cac0db2.jpg',
-				movieTitle: 'Die Hard',
-				movieDescription: 'Best action movie ever made, YiPieKiYay!',
-				bigPics:["http://bit.ly/1hmkuA3", "http://bit.ly/1P9q0Ba", "http://bit.ly/1MdH7DG"],
-				videos:["https://www.youtube.com/embed/8YXi9JAgdf0", "https://www.youtube.com/embed/I6wRZCV7naE"],
-				tags:["Action","John McClane"]
+				moviePic: '../images/bbluemel/cover.jpg',
+				movieTitle: 'Breanna Bluemel Master Aesthetician',
+				movieDescription: 'In this project I created a brand identity for a master aesthetician who is looking to start her own business.',
+				bigPics:['../images/bbluemel/bluemel_01.jpg', '../images/bbluemel/bluemel_02.jpg', '../images/bbluemel/bluemel_03.jpg', '../images/bbluemel/bluemel_04.jpg'],
+				tags:["Branding", "Logo", "Marketing", "Graphic Design"]
 			},
 			{
-				moviePic: 'https://mir-s3-cdn-cf.behance.net/projects/202/3784618.545ec841a3b72.jpg',
-				movieTitle: 'Man on Fire',
-				movieDescription: 'Great movie where Denzel Washington kicks mexican cartel ass in order to get together with his one tru love, a lil rich white kid?? Wtf, dudo was a pedo',
-				bigPics:["http://bit.ly/1MU4i4Y", "http://bit.ly/1J0iOIR", "http://bit.ly/1gg8m2I"],
-				videos:["https://www.youtube.com/embed/g4kLizDXLY0", "https://www.youtube.com/embed/v1MjWvrqKnw"],
-				tags:['Denzel Washington', 'Action', 'suspense'],
+				moviePic: '../images/cbcBanners/cover.jpg',
+				movieTitle: 'CBC Advisors recruiting materials',
+				movieDescription: 'These are marketing materials that CBC Advisors used in open houses to attract top agents for their commerical real estate brokerage.',
+				bigPics:['../images/cbcBanners/banners_01.jpg', '../images/cbcBanners/banners_02.jpg', '../images/cbcBanners/banners_03.jpg', '../images/cbcBanners/banners_04.jpg', '../images/cbcBanners/banners_05.jpg', '../images/cbcBanners/banners_06.jpg'],
+				tags:['Corporate Identity', 'Branding', 'Marketing', 'Banners'],
 			},
 			{
-				moviePic: 'https://mir-s3-cdn-cf.behance.net/projects/202/e186c226926453.55756515da394.png',
-				movieTitle: 'The Dark Knight Rises',
-				movieDescription: 'The greatest Batman saga ever made... Seriously if you disagree you\'re dead to me',
-				bigPics:["http://bit.ly/1JPx1qV", "http://bit.ly/1gNRPUF", "http://bit.ly/1OUbPPM", "http://bit.ly/1eW8P99"],
-				videos:["https://www.youtube.com/embed/VqKkbpcuFbI"],
-				tags:["Batman", "Action", "Dark Knight"]
+				moviePic: '../images/constantine/cover.jpg',
+				movieTitle: 'Constantine: Hail to the King',
+				movieDescription: 'A mock-up marketing campaign for a sequel I was disappointed Warner Brothers never produced.',
+				bigPics:['../images/constantine/constantine-master_01.jpg', '../images/constantine/constantine-master_02.jpg', '../images/constantine/constantine-master_03.jpg', '../images/constantine/constantine-master_04.jpg', '../images/constantine/constantine-master_06.jpg', '../images/constantine/constantine-master_07.jpg', '../images/constantine/constantine-master_09.jpg', '../images/constantine/constantine-master_10.jpg', '../images/constantine/constantine-master_11.jpg'],
+				tags:["Marketing", "Advertisement", "Photo Manipulation", "Packaging"]
+			},
+			{
+				moviePic: '../images/wingNutz/cover.jpg',
+				movieTitle: 'Wing Nutz marketing package',
+				movieDescription: 'The objective of this marketing package is to show potential investors why is a good idea to have your own Wing Nutz franchise and how you can get one.',
+				bigPics:['../images/wingNutz/wng-nutz-composition_01.jpg', '../images/wingNutz/wng-nutz-composition_02.jpg', '../images/wingNutz/wng-nutz-composition_03.jpg', '../images/wingNutz/wng-nutz-composition_04.jpg', '../images/wingNutz/wng-nutz-composition_06.jpg'],
+				tags:["Marketing", "Branding", "Packaging", "Labels", "Logo"]
+			},
+			{
+				moviePic: '../images/wineBottle/cover.jpg',
+				movieTitle: 'Ganhaarr: Wine label',
+				movieDescription: 'Class project where the objective was to create our own wine label.',
+				bigPics:['../images/wineBottle/bottle_01.jpg', '../images/wineBottle/bottle_02.jpg'],
+				tags:["Marketing", "Branding", "Packaging", "Labels", "Logo"]
 			}
 		];
 
@@ -92,6 +106,7 @@
 		self.popUpBtn = function(movie){
 			self.currentMovie = movie;
 			self.viewable = true;
+			smoothScroll('goToTop');
 		};
 
 		self.kidMoviesBtn = function(){
@@ -101,7 +116,7 @@
 			}
 			self.currentPortfolio = portfolios[0];
 			self.titleBar = true;
-			console.log(self.titleBar);
+			smoothScroll('container');
 		};
 		self.actionMoviesBtn = function(){
 			self.movies = [];
@@ -110,11 +125,55 @@
 			}
 			self.currentPortfolio = portfolios[1];
 			self.titleBar = true;
-			console.log(self.titleBar);
+			smoothScroll('container');
 		};
+		function currentYPosition() {
+		    // Firefox, Chrome, Opera, Safari
+		    if (self.pageYOffset) return self.pageYOffset;
+		    // Internet Explorer 6 - standards mode
+		    if (document.documentElement && document.documentElement.scrollTop)
+		        return document.documentElement.scrollTop;
+		    // Internet Explorer 6, 7 and 8
+		    if (document.body.scrollTop) return document.body.scrollTop;
+		    return 0;
+		}
 
+		function elmYPosition(eID) {
+		    var elm = document.getElementById(eID);
+		    var y = elm.offsetTop;
+		    var node = elm;
+		    while (node.offsetParent && node.offsetParent != document.body) {
+		        node = node.offsetParent;
+		        y += node.offsetTop;
+		    } return y;
+		}
 
+		function smoothScroll(eID) {
+		    var startY = currentYPosition();
+		    var stopY = elmYPosition(eID);
+		    var distance = stopY > startY ? stopY - startY : startY - stopY;
+		    if (distance < 100) {
+		        scrollTo(0, stopY); return;
+		    }
+		    var speed = Math.round(distance / 100);
+		    speed = 20;
+		    var step = Math.round(distance / 25);
+		    var leapY = stopY > startY ? startY + step : startY - step;
+		    var timer = 0;
+		    if (stopY > startY) {
+		        for ( var i=startY; i<stopY; i+=step ) {
+		            setTimeout("window.scrollTo(0, "+leapY+")", timer * speed);
+		            leapY += step; if (leapY > stopY) leapY = stopY; timer++;
+		        } return;
+		    }
+		    for ( var j=startY; j>stopY; j-=step ) {
+		        setTimeout("window.scrollTo(0, "+leapY+")", timer * speed);
+		        leapY -= step; if (leapY < stopY) leapY = stopY; timer++;
+		    }
+		}
 	})
+
+
 	.directive('popUp',function(){
 		return{
 			restrict: "E",

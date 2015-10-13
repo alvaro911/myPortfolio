@@ -17,9 +17,17 @@ body,html, h1, h2, h3, h4, p, .wrapper, #container, .text-wrapper, .black-screen
 	border-bottom:1px solid black !important;
 }
 
-.titble-bar h1{
+.title-bar h1{
+	margin-top: 20px;
 	font-size: 3em;
 	text-align: center;
+	font-family: 'Fira Sans';
+	text-transform: uppercase;
+	color: #30302B;
+}
+
+.wrapper img{
+	cursor: pointer;
 }
 
 .wrapper{
@@ -27,7 +35,21 @@ body,html, h1, h2, h3, h4, p, .wrapper, #container, .text-wrapper, .black-screen
 	height: 262px;
 	float: left;
 	margin: 30px 20px 40px 80px;
+	text-overflow: ellipsis;
+	overflow: hidden;
+	padding-bottom: 5px;
 	background-color: #E5E5E5;
+	-webkit-transition: all .25s linear;
+	-mz-transition: all .25s linear;
+	-ms-transition: all .25s linear;
+	transition: all .25s linear;
+}
+
+.wrapper:hover{
+	-webkit-box-shadow: 0 0 10px black;
+	-mz-box-shadow: 0 0 10px black;
+	-ms-box-shadow: 0 0 10px black;
+	box-shadow: 0 0 10px black;
 }
 
 .text-wrapper{
@@ -39,9 +61,11 @@ body,html, h1, h2, h3, h4, p, .wrapper, #container, .text-wrapper, .black-screen
 	color: #346BFF;
 	font-size: 0.9em;
 	margin-bottom: 15px;
+	cursor: pointer;
 }
 
 .text-wrapper p{
+	padding-bottom: 5px;
 	font-family: sans-serif;
 	color: #6C6C6C;
 	font-size: .7em;
@@ -53,27 +77,46 @@ body,html, h1, h2, h3, h4, p, .wrapper, #container, .text-wrapper, .black-screen
 /*The animation*/
 
 .wrapper.ng-enter{
-	-webkit-transition:all linear 0.5s;
-	transition:all linear 0.5s;
+	-webkit-transition:0.5 linear all;
+	-moz-transition:0.5 linear all;
+	-ms-transition:0.5 linear all;
+	transition:0.5 linear all;
 	-webkit-transform: scale(0);
+	-moz-transform: scale(0);
+	-ms-transform: scale(0);
 	transform: scale(0);
 }
 
 .wrapper.ng-enter-stagger{
 	-webkit-transition-delay:300ms;	
-  transition-delay:300ms;
+	-moz-transition-delay:300ms;
+	-ms-transition-delay:300ms;
+  	transition-delay:300ms;
+  	-webkit-transition-duration:0;
+  	-moz-transition-duration:0;
+  	-ms-transition-duration:0;
+  	transition-duration:0;
 }
 
 .wrapper.ng-enter-active{
 	-webkit-transform: scale(1.1);
+	-moz-transform: scale(1.1);
+	-ms-transform: scale(1.1);
 	transform: scale(1.1);
 }
 
 
 .wrapper.ng-leave{
-	-webkit-transition:all ease 0.1s;
-	transition:all ease 0.1s;
+	-webkit-transition:all ease 0.25s;
+	-moz-transition:all ease 0.25s;
+	-ms-transition:all ease 0.25s;
+	transition:all ease 0.25s;
 	opacity: 1;
+}
+
+.wrapper.ng-leave-stagger{
+	-webkit-transition-delay:1s;
+	transition-delay:1s;
 }
 
 .wrapper.ng-leave-active{
@@ -100,9 +143,8 @@ body,html, h1, h2, h3, h4, p, .wrapper, #container, .text-wrapper, .black-screen
 
 .black-screen .artwork-container .title-cont{
 	width: 100%;
-	height:80px;
+	height:100px;
 	background-color: #FAFAFA;
-	padding-top: 20px;
 }
 
 .black-screen .artwork-container h2{
@@ -110,6 +152,13 @@ body,html, h1, h2, h3, h4, p, .wrapper, #container, .text-wrapper, .black-screen
 	color: #2a2a2a;
 	font-size: 1.5em;
 	margin: 10px;
+}
+
+.black-screen .artwork-container p{
+	font-family: sans-serif;
+	color:#2a2a2a;
+	font-size: .8em;
+	margin:10px;
 }
 
 .black-screen .artwork-container h5{
@@ -150,6 +199,9 @@ body,html, h1, h2, h3, h4, p, .wrapper, #container, .text-wrapper, .black-screen
 }
 
 .fade-in-out {
+	-webkit-transition: 1s linear all;  
+	-moz-transition: 1s linear all;  
+	-ms-transition: 1s linear all;  
   transition: 1s linear all;  
   opacity: 1;
 }

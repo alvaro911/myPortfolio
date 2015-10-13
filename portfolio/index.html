@@ -7,28 +7,29 @@
 	<link rel="stylesheet" type="text/css" href="CSS/stagger.css">
 	<link rel="stylesheet" type="text/css" href="CSS/fadeout.css">
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.3.0/css/font-awesome.min.css">
-	<link href='http://fonts.googleapis.com/css?family=Abel' rel='stylesheet' type='text/css'>
-	<link href='http://fonts.googleapis.com/css?family=Rajdhani:300&subset=latin,latin-ext' rel='stylesheet' type='text/css'>
+	<link href='https://fonts.googleapis.com/css?family=Rajdhani:400,600' rel='stylesheet' type='text/css'>
 	<link href='http://fonts.googleapis.com/css?family=Fira+Sans:300,700' rel='stylesheet' type='text/css'>
-	<link href='http://fonts.googleapis.com/css?family=Raleway:600,100' rel='stylesheet' type='text/css'>
+	<link href='http://fonts.googleapis.com/css?family=Raleway:400,700' rel='stylesheet' type='text/css'>
 </head>
-<body ng-controller="staggerCtrl as stagger">
-	<header ng-controller="slideCtrl as slide">
-		<div class="menu-overlay" ng-show="slide.showMenu" ng-click="slide.showMenu = !slide.showMenu"></div>
-		<div ng-class="{'show-menu': slide.showMenu}">	
-			<div class="menu-wrap">
-				<nav class="menu">
-					<div class="icon-list">
-						<a ng-click="stagger.navigateTo(''); slide.toggleMenu()"><span> Home</span></a>
-						<a ng-click="stagger.navigateTo('about-me'); slide.toggleMenu()"><span> About Me</span></a>
-						<a href="#"></i><span> Contact Me</span></a>
-					</div>
-				</nav>
-				<i class="fa fa-times" ng-click="slide.toggleMenu()"></i>
+<body>
+	<div ng-controller="staggerCtrl as stagger">
+		<header ng-controller="slideCtrl as slide">
+			<div class="menu-overlay" ng-show="slide.showMenu" ng-click="slide.showMenu = !slide.showMenu"></div>
+			<div ng-class="{'show-menu': slide.showMenu}">	
+				<div class="menu-wrap">
+					<nav class="menu">
+						<div class="icon-list">
+							<a ng-click="stagger.navigateTo(''); slide.toggleMenu()"><span> Home</span></a>
+							<a ng-click="stagger.navigateTo('about-me'); slide.toggleMenu()"><span> About Me</span></a>
+							<a href="#"></i><span> Contact Me</span></a>
+						</div>
+					</nav>
+					<i class="fa fa-times" ng-click="slide.toggleMenu()"></i>
+				</div>
+				<i class="fa fa-bars" id="open-button" ng-click="slide.toggleMenu()"></i>
 			</div>
-			<i class="fa fa-bars" id="open-button" ng-click="slide.toggleMenu()"></i>
-		</div>
-	</header>
+		</header>
+	</div>
 	<div ng-view>
 
 	</div>
@@ -46,7 +47,6 @@
 	<script type="text/javascript" src="scripts/stagger.js"></script>
 	<script type="text/javascript" src="scripts/slideCtrl.js"></script>
 	<script type="text/javascript" src="scripts/classie.js"></script>
-	<!--<script type="text/javascript" src="scripts/article-fade.js"></script>-->
 	<script type="text/javascript" src="scripts/route.js"></script>
 	<script type="text/javascript" src="scripts/about-me.js"></script>
 </body>

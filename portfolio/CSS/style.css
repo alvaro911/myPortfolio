@@ -21,7 +21,6 @@ body{
     background-color: #F4F4F4;
 }
 
-
 #intro{
     display: table;
     height: 100%;
@@ -51,7 +50,7 @@ body{
     color: white;
     margin-top: -3%;
     letter-spacing: 2px;
-    font-weight: 300;
+    font-weight: 600;
 }
 
 #intro #bgvideo{
@@ -92,15 +91,13 @@ body{
 }
 
 #intro #bgvideo .videoBG{
-    background: url(images/balloons.jpg) center center no-repeat;
+    background: url(images/ballons.jpg) center center no-repeat;
     background-size: cover;
 }
 
 .portfolio{
     width: 100%;
     position: relative;
-    
-
 }
 
 .portfolio section{
@@ -121,7 +118,6 @@ body{
 .portfolio .tile-wrapper img{
     position: relative;
     width: 100%;
-    /*min-height: 100%;*/
     opacity: 0.8;
 
 }
@@ -132,6 +128,8 @@ body{
     text-transform: uppercase;
     font-weight: 1.25em;
     -webkit-backface-visibility: hidden;
+    -moz-backface-visibility: hidden;
+    -ms-backface-visibility: hidden;
     backface-visibility: hidden;
 }
 
@@ -182,8 +180,12 @@ body{
 .tile-wrapper.effect-apollo img {
     opacity: 0.95;
     -webkit-transition: opacity 0.35s, -webkit-transform 0.35s;
+    -moz-transition: opacity 0.35s, -webkit-transform 0.35s;
+    -ms-transition: opacity 0.35s, -webkit-transform 0.35s;
     transition: opacity 0.35s, transform 0.35s;
     -webkit-transform: scale3d(1.05,1.05,1);
+    -moz-transform: scale3d(1.05,1.05,1);
+    -ms-transform: scale3d(1.05,1.05,1);
     transform: scale3d(1.05,1.05,1);
 }
 
@@ -196,8 +198,12 @@ body{
     background: rgba(154,177,56,0.5);
     content: '';
     -webkit-transition: -webkit-transform 0.6s;
+    -moz-transition: -moz-transform 0.6s;
+    -ms-transition: -ms-transform: 0.6s;
     transition: transform 0.6s;
     -webkit-transform: scale3d(1.9,1.4,1) rotate3d(0,0,1,45deg) translate3d(0,-440%,0);
+    -moz-transform: scale3d(1.9,1.4,1) rotate3d(0,0,1,45deg) translate3d(0,-440%,0);
+    -ms-transform: scale3d(1.9,1.4,1) rotate3d(0,0,1,45deg) translate3d(0,-440%,0);
     transform: scale3d(1.9,1.4,1) rotate3d(0,0,1,45deg) translate3d(0,-440%,0);
 }
 
@@ -211,6 +217,8 @@ body{
     text-align: right;
     opacity: 0;
     -webkit-transition: opacity 0.35s;
+    -moz-transition: opacity 0.35s;
+    -ms-transition: opacity 0.35s;
     transition: opacity 0.35s;
     font-family: 'Fira Sans', sans-serif;
     font-weight: 700;
@@ -229,17 +237,23 @@ body{
 .tile-wrapper.effect-apollo:hover img {
     opacity: 0.6;
     -webkit-transform: scale3d(1,1,1);
+    -moz-transform: scale3d(1,1,1);
+    -ms-transform: scale3d(1,1,1);
     transform: scale3d(1,1,1);
 }
 
 .tile-wrapper.effect-apollo:hover .caption::before {
     -webkit-transform: scale3d(1.9,1.4,1) rotate3d(0,0,1,45deg) translate3d(0,1850%,0);
+    -moz-transform: scale3d(1.9,1.4,1) rotate3d(0,0,1,45deg) translate3d(0,1850%,0);
+    -ms-transform: scale3d(1.9,1.4,1) rotate3d(0,0,1,45deg) translate3d(0,1850%,0);
     transform: scale3d(1.9,1.4,1) rotate3d(0,0,1,45deg) translate3d(0,1850%,0);
 }
 
 .tile-wrapper.effect-apollo:hover p {
     opacity: 1;
     -webkit-transition-delay: 0.1s;
+    -moz-transition-delay: 0.1s;
+    -ms-transition-delay: 0.1s;
     transition-delay: 0.1s;
 }
 
@@ -252,9 +266,7 @@ body{
 #programming-content .content, #design-content .content{
     clear: both;
     margin-top: 20px;
-    width: 100%;
-    /*padding: 3%;*/
-    
+    width: 100%;    
 }
 
 #programming-content .content h3, #design-content .content h3{
@@ -286,12 +298,6 @@ body{
     clear: both;
 }
 
-
-@media screen and (max-width: 768px){
-    #hamburger-icon{
-        display: inline-block !important;
-    }
-}
 
 
 

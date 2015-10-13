@@ -1,23 +1,23 @@
 angular.module("StaggerApp")
-.controller('aboutMeCtrl', function () {
+.controller('aboutMeCtrl', function ($window, $timeout) {
 	// detect if IE : from http://stackoverflow.com/a/16657946		
-	var ie = (function(){
-		var undef,rv = -1; // Return value assumes failure.
-		var ua = window.navigator.userAgent;
-		var msie = ua.indexOf('MSIE ');
-		var trident = ua.indexOf('Trident/');
+	// var ie = (function(){
+	// 	var undef,rv = -1; // Return value assumes failure.
+	// 	var ua = $window.navigator.userAgent;
+	// 	var msie = ua.indexOf('MSIE ');
+	// 	var trident = ua.indexOf('Trident/');
 
-		if (msie > 0) {
-			// IE 10 or older => return version number
-			rv = parseInt(ua.substring(msie + 5, ua.indexOf('.', msie)), 10);
-		} else if (trident > 0) {
-			// IE 11 (or newer) => return version number
-			var rvNum = ua.indexOf('rv:');
-			rv = parseInt(ua.substring(rvNum + 3, ua.indexOf('.', rvNum)), 10);
-		}
+	// 	if (msie > 0) {
+	// 		// IE 10 or older => return version number
+	// 		rv = parseInt(ua.substring(msie + 5, ua.indexOf('.', msie)), 10);
+	// 	} else if (trident > 0) {
+	// 		// IE 11 (or newer) => return version number
+	// 		var rvNum = ua.indexOf('rv:');
+	// 		rv = parseInt(ua.substring(rvNum + 3, ua.indexOf('.', rvNum)), 10);
+	// 	}
 
-		return ((rv > -1) ? rv : undef);
-	}());
+	// 	return ((rv > -1) ? rv : undef);
+	// }());
 
 
 	// disable/enable scroll (mousewheel and keys) from http://stackoverflow.com/a/4770179					
@@ -26,7 +26,7 @@ angular.module("StaggerApp")
 	var keys = [32, 37, 38, 39, 40], wheelIter = 0;
 
 	function preventDefault(e) {
-		e = e || window.event;
+		e = e || $window.event;
 		if (e.preventDefault)
 		e.preventDefault();
 		e.returnValue = false;  
@@ -53,34 +53,42 @@ angular.module("StaggerApp")
 	}
 
 	function disable_scroll() {
-		window.onmousewheel = document.onmousewheel = wheel;
+		$window.onmousewheel = document.onmousewheel = wheel;
 		document.onkeydown = keydown;
 		document.body.ontouchmove = touchmove;
 	}
 
 	function enable_scroll() {
-		window.onmousewheel = document.onmousewheel = document.onkeydown = document.body.ontouchmove = null;  
+		$window.onmousewheel = document.onmousewheel = document.onkeydown = document.body.ontouchmove = null;  
 	}
 
-	var docElem = window.document.documentElement,
+	var docElem = $window.document.documentElement,
 		scrollVal,
 		isRevealed, 
 		noscroll, 
 		isAnimating;
-		var container = document.getElementById( 'container' );
-		var trigger = container.querySelector( 'button.trigger' );
+		$window.addEventListener( 'scroll', scrollPage );
+	$timeout(function() {
+			var container = document.getElementById( 'container' );
+			var trigger = container.querySelector( 'button.trigger' );
+			console.log(container);
+			console.log(trigger);
+			trigger.addEventListener( 'click', function() { toggle( 'reveal' ); } );
+	});
 
 	function scrollY() {
-		return window.pageYOffset || docElem.scrollTop;
+		return $window.pageYOffset || docElem.scrollTop;
 	}
 
 	function scrollPage() {
+		var pageScroll = scrollY();
+		noscroll = pageScroll === 0;
 		scrollVal = scrollY();
-		
-		if( noscroll && !ie ) {
+		console.log(scrollVal);
+		if( noscroll) {
 			if( scrollVal < 0 ) return false;
 			// keep it that way
-			window.scrollTo( 0, 0 );
+			$window.scrollTo( 0, 0 );
 		}
 
 		if( classie.has( container, 'notrans' ) ) {
@@ -135,8 +143,65 @@ angular.module("StaggerApp")
 		classie.add( container, 'modify' );
 	}
 
-window.addEventListener( 'scroll', scrollPage );
-trigger.addEventListener( 'click', function() { toggle( 'reveal' ); } );
+	function classReg( className ) {
+  		return new RegExp("(^|\\s+)" + className + "(\\s+|$)");
+	}
+
+	// classList support for class management
+	// altho to be fair, the api sucks because it won't accept multiple classes at once
+	var hasClass, addClass, removeClass;
+
+	if ( 'classList' in document.documentElement ) {
+	  hasClass = function( elem, c ) {
+	    return elem.classList.contains( c );
+	  };
+	  addClass = function( elem, c ) {
+	    elem.classList.add( c );
+	  };
+	  removeClass = function( elem, c ) {
+	    elem.classList.remove( c );
+	  };
+	}
+	else {
+	  hasClass = function( elem, c ) {
+	    return classReg( c ).test( elem.className );
+	  };
+	  addClass = function( elem, c ) {
+	    if ( !hasClass( elem, c ) ) {
+	      elem.className = elem.className + ' ' + c;
+	    }
+	  };
+	  removeClass = function( elem, c ) {
+	    elem.className = elem.className.replace( classReg( c ), ' ' );
+	  };
+	}
+
+	function toggleClass( elem, c ) {
+	  var fn = hasClass( elem, c ) ? removeClass : addClass;
+	  fn( elem, c );
+	}
+
+	var classie = {
+	  // full names
+	  hasClass: hasClass,
+	  addClass: addClass,
+	  removeClass: removeClass,
+	  toggleClass: toggleClass,
+	  // short names
+	  has: hasClass,
+	  add: addClass,
+	  remove: removeClass,
+	  toggle: toggleClass
+	};
+
+	// transport
+	if ( typeof define === 'function' && define.amd ) {
+	  // AMD
+	  define( classie );
+	} else {
+	  // browser global
+	  window.classie = classie;
+	}
 });
 
 

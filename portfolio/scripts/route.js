@@ -7,7 +7,8 @@ angular.module("StaggerApp")
 	})
 	.when('/', {
 		templateUrl: '/pages/home.html',
-		controller: 'staggerCtrl'
+		controller: 'staggerCtrl',
+		controllerAs: 'stagger'
 	})
 	.otherwise({redirectTo:'/'});
 });

@@ -35,7 +35,6 @@
 	<div id="container">
 		<div ng-show="stagger.titleBar" class="title-bar">
 			<h1>{{stagger.currentPortfolio.title}}</h1>
-			<p>{{stagger.currentPortfolio.paragraph}}</p>
 		</div>
 		<div ng-repeat="movie in stagger.movies" class="wrapper">
 			<img src="{{movie.moviePic}}" ng-click="stagger.popUpBtn(movie)" />

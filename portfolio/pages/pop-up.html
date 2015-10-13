@@ -1,12 +1,16 @@
 <div class="black-screen">
 	<div class="overlay" ng-click="stagger.viewable = !stagger.viewable"></div>
 	<div class="artwork-container">
-		<div class="title-cont">
+		<div id="goToTop" class="title-cont">
 			<h2>{{stagger.currentMovie.movieTitle}}</h2>
+			<p>{{stagger.currentMovie.movieDescription}}</p>
 			<h5 class="tags" ng-repeat="tag in stagger.currentMovie.tags">{{tag}}</h5>
 		</div>
 		<img ng-repeat="bigPic in stagger.currentMovie.bigPics" ng-src="{{bigPic}}">
 		<iframe ng-repeat="video in stagger.currentMovie.videos" ng-src="{{video}}" frameborder="0" allowfullscreen></iframe>
+		<div ng-if="stagger.currentMovie.projectLink" class="title-cont">
+			<a ng-href="{{stagger.currentMovie.projectLink}}" target="_blank">Click here</a>
+		</div>
 		<div class="footer-cont">
 			<div>icons will go here</div>
 		</div>
