@@ -1,15 +1,15 @@
 <!DOCTYPE html>
 <html ng-app="StaggerApp">
 <head>
-	<title>Portfolio</title>
-	<link rel="stylesheet" type="text/css" href="CSS/slide_menu.css"> 
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta charset="UTF-8">
+	<title>Portfolio</title> 
 	<link rel="stylesheet" type="text/css" href="CSS/style.css">
 	<link rel="stylesheet" type="text/css" href="CSS/stagger.css">
 	<link rel="stylesheet" type="text/css" href="CSS/fadeout.css">
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.3.0/css/font-awesome.min.css">
-	<link href='https://fonts.googleapis.com/css?family=Rajdhani:400,600' rel='stylesheet' type='text/css'>
-	<link href='http://fonts.googleapis.com/css?family=Fira+Sans:300,700' rel='stylesheet' type='text/css'>
 	<link href='http://fonts.googleapis.com/css?family=Raleway:400,700' rel='stylesheet' type='text/css'>
+	<link href="https://fonts.googleapis.com/css?family=Oxygen" rel="stylesheet">
 </head>
 <body>
 	<div ng-controller="staggerCtrl as stagger">
@@ -21,7 +21,6 @@
 						<div class="icon-list">
 							<a ng-click="stagger.navigateTo(''); slide.toggleMenu()"><span> Home</span></a>
 							<a ng-click="stagger.navigateTo('about-me'); slide.toggleMenu()"><span> About Me</span></a>
-							<a href="#"></i><span> Contact Me</span></a>
 						</div>
 					</nav>
 					<i class="fa fa-times" ng-click="slide.toggleMenu()"></i>
@@ -35,7 +34,12 @@
 	</div>
 		
 	<div id="footer">
-		<p>Howdy</p>
+		<div class="message">I hope you liked my work.</div>
+		<div class="social">
+			<div class="padding"><a href="https://www.linkedin.com/in/alvaro911" target="_blank"><img src="images/social/linkedIn.svg"></a></div>
+			<div class="padding"><a href="https://www.behance.net/alvaro911" target="_blank"><img src="images/social/behance.svg"></a></div>
+			<div class="padding"><a href="https://github.com/alvaro911" target="_blank"><img src="images/social/github.svg"></a></div>
+		</div>
 	</div>
 
 
@@ -49,5 +53,11 @@
 	<script type="text/javascript" src="scripts/classie.js"></script>
 	<script type="text/javascript" src="scripts/route.js"></script>
 	<script type="text/javascript" src="scripts/about-me.js"></script>
+	<script type="text/javascript" src="scripts/parallax.js"></script>
+	<!-- <script>
+		var scene=document.getElementById('scene');
+		console.log('this is the scene', scene);
+		var	parallax = new Parallax(scene);
+	</script> -->
 </body>
 </html>

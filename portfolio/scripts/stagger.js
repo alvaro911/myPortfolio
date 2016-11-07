@@ -9,7 +9,8 @@
        'self',
        'https://www.youtube.com/**',
        'https://player.vimeo.com/video/**',
-       'https://bitly.com/shorten/**'
+       'http://bit.ly/**',
+       'https://codepen.io/alvaro/**'
      ]);
    })
 	.controller('staggerCtrl', function($location, $anchorScroll){
@@ -24,40 +25,51 @@
 
 		var portfolios = [
 			{
-				title:'Programming Portfolio',
+				title:'Web Development',
 				paragraph:'These are projects I\'ve been working on'
 			},
 			{
-				title:'Graphic Design Portfolio',
+				title:'Graphic Design',
 				paragraph:'A selection of my best graphic design work'
 			}
 		];
 
 		var kidMovies = [
 			{
-				moviePic: 'https://mir-s3-cdn-cf.behance.net/projects/202/17926101.548d2d2a7ce91.jpg',
-				movieTitle: 'The Last Air Bender',
-				movieDescription: 'Ang is the last Airbender, and he goes in a quest to become the Avatar and stop the Fire Nation',
-				bigPics: ["http://bit.ly/1HpnxMC", "http://bit.ly/1ILre4T"],
-				videos: ["https://www.youtube.com/embed/gwdx3VY9bhw"],
-				tags: ["Ang", "Nickelodeon", "Animation"],
-				projectLink:'http://www.behance.net'
+				moviePic: '../images/elevating/cover.jpg',
+				movieTitle: 'Elevating CRE',
+				movieDescription: 'For this project I created the logo and website for a yearly event',
+				bigPics: ['../images/elevating/elevating_01.jpg','../images/elevating/elevating_02.jpg','../images/elevating/elevating_03.jpg','../images/elevating/elevating_04.jpg'],
+				projectLink:'http://www.elevatingcre.com'
 			},
 			{
-				moviePic: 'https://mir-s3-cdn-cf.behance.net/projects/202/15078531.54890dc71096a.jpg',
-				movieTitle: 'The Incredibles',
-				movieDescription: 'A particular family, where their members have superpowers. The father has a midlife crisis and puts his family at risk when he tries to relive his glory days',
-				bigPics: ["http://bit.ly/1SW0Yvg", "http://bit.ly/1eW608f", "http://bit.ly/1P9oPBP"],
-				videos:["https://www.youtube.com/embed/1LASc8ewLaw", "https://www.youtube.com/embed/eZbzbC9285I"],
-				tags:["incredibles", "family", "Animation", "superpowers", "Disney"]
+				moviePic: '../images/gun_developer/cover.jpg',
+				movieTitle: 'Gun - Developer',
+				movieDescription: 'GUN developer site makes it easy to developers to start their first project with GUN, it has the documentation and tutorials on how to interact with it.',
+				bigPics: ["../images/gun_developer/gun_dev_01.jpg", "../images/gun_developer/gun_dev_02.jpg", "../images/gun_developer/gun_dev_03.jpg"],
+				tags:["incredibles", "family", "Animation", "superpowers", "Disney"],
+				projectLink:'http://gun.js.org'
 			},
 			{
-				moviePic: 'https://mir-s3-cdn-cf.behance.net/projects/202/14568851.5485b426bba74.jpg',
-				movieTitle: 'The Lion King',
-				movieDescription: 'Simba is the throne heir, but his bastard jealous uncle commits such a horrible act that scars kids for life.',
-				bigPics:["http://bit.ly/1HunyPE", "http://bit.ly/1Eci5g0", "http://bit.ly/1MU19SJ"],
-				videos:["https://www.youtube.com/embed/f0fReuRs890", "https://www.youtube.com/embed/4sj1MT05lAA"],
-				tags:["Animation", "Disney", "family"]
+				moviePic: '../images/frugality/cover.jpg',
+				movieTitle: 'Frugality',
+				movieDescription: 'Frugality is a framework that will let business save money when sending JS objects to servers.',
+				bigPics:["../images/frugality/frugality_01.jpg", "../images/frugality/frugality_02.jpg"],
+				videos:["http://bit.ly/2b077F7"],
+				projectLink:'http://gun.js.org/frugality'
+			},
+			{
+				moviePic: '../images/quote_machine/cover.jpg',
+				movieTitle: 'Random quote machine',
+				movieDescription: 'A random quote machine generator using jQuery, the user will be able to tweet it as well',
+				videos:['http://bit.ly/2bk0Fuk']
+			},
+			{
+				moviePic:'../images/wiki_search/cover.jpg',
+				movieTitle: 'Wikisearch',
+				movieDescription: 'A simple single page application using angular that lets the user look for anything and will find articles from wikipedia and a link that takes them to it.',
+				bigPics: ['../images/wiki_search/wikisearch.jpg'],
+				projectLink: 'http://bit.ly/2aPCKjz'
 			}
 		];
 
@@ -86,7 +98,7 @@
 			{
 				moviePic: '../images/wingNutz/cover.jpg',
 				movieTitle: 'Wing Nutz marketing package',
-				movieDescription: 'The objective of this marketing package is to show potential investors why is a good idea to have your own Wing Nutz franchise and how you can get one.',
+				movieDescription: 'The objective of this marketing package is to show potential investors why it is a good idea to have your own Wing Nutz franchise and how you can get one.',
 				bigPics:['../images/wingNutz/wng-nutz-composition_01.jpg', '../images/wingNutz/wng-nutz-composition_02.jpg', '../images/wingNutz/wng-nutz-composition_03.jpg', '../images/wingNutz/wng-nutz-composition_04.jpg', '../images/wingNutz/wng-nutz-composition_06.jpg'],
 				tags:["Marketing", "Branding", "Packaging", "Labels", "Logo"]
 			},
@@ -95,6 +107,14 @@
 				movieTitle: 'Ganhaarr: Wine label',
 				movieDescription: 'Class project where the objective was to create our own wine label.',
 				bigPics:['../images/wineBottle/bottle_01.jpg', '../images/wineBottle/bottle_02.jpg'],
+				tags:["Marketing", "Branding", "Packaging", "Labels", "Logo"]
+			},
+			{
+				moviePic: '../images/gun_promo/cover.jpg',
+				movieTitle: 'Ganhaarr: Wine label',
+				movieDescription: 'Class project where the objective was to create our own wine label.',
+				bigPics:['../images/gun_promo/gun_promo_01.jpg', '../images/gun_promo/gun_promo_02.jpg', '../images/gun_promo/gun_promo_03.jpg'],
+				videos:['https://www.youtube.com/embed/F1GB8P6_gVo?rel=0'],
 				tags:["Marketing", "Branding", "Packaging", "Labels", "Logo"]
 			}
 		];
@@ -173,13 +193,27 @@
 		}
 	})
 
-
 	.directive('popUp',function(){
 		return{
 			restrict: "E",
 			templateUrl: 'pages/pop-up.html'
 		};
-	});
+	})
+
+	.directive('parallax', parallaxFn);
+	function parallaxFn(){
+		var directive = {
+			scope:{},
+			restrict: 'E',
+			templateUrl: 'pages/parallax_header.html',
+			link: parallaxFx
+		};
+		return directive;
+		function parallaxFx(scope, element, attrs){
+			var scene = element[0];
+			new Parallax(scene);
+		}
+	}
 
 })(angular);
 
